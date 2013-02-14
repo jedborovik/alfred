@@ -1,4 +1,0 @@
-cupid
-=====
-
-made with love

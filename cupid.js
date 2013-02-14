@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 96cb0e0c06f58c81e75908c632dbd93b87ebd158
 init();
 
 
@@ -14,10 +20,13 @@ function init() {
 		};
 	}
 	$.ajax(file).done(getHandler());
+<<<<<<< HEAD
 
 	mainLoop();
 }
 
+=======
+>>>>>>> 96cb0e0c06f58c81e75908c632dbd93b87ebd158
 
 function mainLoop() {
 	alert(resultArr);
