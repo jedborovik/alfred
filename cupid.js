@@ -1,4 +1,6 @@
 
+
+
 init();
 
 function init() {
@@ -13,7 +15,7 @@ function init() {
 			resultArr[] = data;
 		}
 	}
-	$.ajax(file + ".txt").done(getHandler());
+	$.ajax(file).done(getHandler());
 
 }
 
