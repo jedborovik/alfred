@@ -5,22 +5,41 @@ init();
 function init() {
 
 	var canv = document.getElementById("siteCanvas");
+	ctx = canv.getContext('2d');
+
 
 	var file = "story.txt";
-	resultArr = [];
+	storyArr = []; //your array
 
-	function getHandler() {
-		return function(data) {
-			resultArr = data;
-		};
-	}
-	$.ajax(file).done(getHandler());
+	$.get(file, function(data) {
+	   storyArr = data.split("\n");
+	});
+	
+	
+	setTimeout(main, 300);
 
-	mainLoop();
 }
 
-function mainLoop() {
-	alert(resultArr);
+
+function main() {
+
+	for (var i = 0; i<storyArr.length; i++) {
+		drawLine((storyArr[i]));
+	}
+	
+	
+}
+
+function drawLine(line) {
+
+	var yCoord = 300
+
+	var xCoord = 50;
+
+	ctx.fillStyle = "#000";
+
+	ctx.fillText(line, xCoord, yCoord);
+
 }
 
 /*
