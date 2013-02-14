@@ -7,21 +7,20 @@ function init() {
 	var canv = document.getElementById("siteCanvas");
 
 	var file = "story.txt";
-	resultArr = [];
+	storyArr = ''; //your array
 
-	function getHandler() {
-		return function(data) {
-			resultArr = data;
-		};
+	jQuery.get(file, function(data) {
+	   alert(data);
+	});
+
+/*
+	for (var i = 0; i<storyArr.length; i++) {
+		console.log(storyArr[i]);
 	}
-	$.ajax(file).done(getHandler());
-
-	mainLoop();
+*/
 }
 
-function mainLoop() {
-	alert(resultArr);
-}
+
 
 /*
 .panel {
