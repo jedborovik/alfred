@@ -1,20 +1,26 @@
-
 init();
+
 
 function init() {
 
 	var canv = document.getElementById("siteCanvas");
 
 	var file = "story.txt";
-	var resultArr = [], numberOfFiles = 1000;
+	resultArr = [];
 
 	function getHandler() {
 		return function(data) {
-			resultArr[] = data;
-		}
+			resultArr = data;
+		};
 	}
-	$.ajax(file + ".txt").done(getHandler());
+	$.ajax(file).done(getHandler());
 
+	mainLoop();
+}
+
+
+function mainLoop() {
+	alert(resultArr);
 }
 
 /*
