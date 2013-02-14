@@ -1,11 +1,10 @@
-$.
-init();
+
+$(document).ready(function() {
 
 
-function init() {
-
-	var canv = document.getElementById("siteCanvas");
+	canv = document.getElementById('site-canvas');
 	ctx = canv.getContext('2d');
+
 
 
 	var file = "story.txt";
@@ -16,25 +15,31 @@ function init() {
 	});
 	
 	
-	setTimeout(main, 300);
+	setTimeout(main, 1000);
 
-}
+});
 
 
 function main() {
 
-	for (var i = 0; i<storyArr.length; i++) {
-		drawLine((storyArr[i]));
+	interv = 0;
+
+	setInterval(function() {
+		for (var i = 0; i<storyArr.length; i++) {
+			drawLine((storyArr[i]));
+		}
 	}
+	, 1000);
+
 	
 	
 }
 
 function drawLine(line) {
 
-	var yCoord = 300
+	var yCoord = 100
 
-	var xCoord = 50;
+	var xCoord = 10;
 
 	ctx.fillStyle = "#000";
 
