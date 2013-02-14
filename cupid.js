@@ -24,9 +24,12 @@ function main() {
 
 	interv = 0;
 
-	setInterval(function() {
-		for (var i = 0; i<storyArr.length; i++) {
-			drawLine((storyArr[i]));
+	drawTimer = setInterval(function() {
+
+		drawLine((storyArr[interv]));
+		interv++;
+		if (interv > storyArr.length) {
+			clearInterval(drawTimer);
 		}
 	}
 	, 1000);
@@ -36,6 +39,7 @@ function main() {
 }
 
 function drawLine(line) {
+	ctx.font = 'bold 20px helvetica';
 
 	var yCoord = 100
 
