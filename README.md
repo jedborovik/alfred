@@ -1,4 +1,4 @@
 alfred
 ======
 
-made with love
+made with laughter
