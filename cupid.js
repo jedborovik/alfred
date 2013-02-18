@@ -1,59 +1,41 @@
-
 $(document).ready(function() {
 
-
-	canv = document.getElementById('site-canvas');
-	ctx = canv.getContext('2d');
-
-
-
-	var file = "story.txt";
-	storyArr = []; //your array
-
-	$.get(file, function(data) {
-	   storyArr = data.split("\n");
+	methods["begin"]();
+	$(document).on('keypress', function(e) {
+		methods["keypress"](e);
 	});
-	
-	
-	setTimeout(main, 1000);
-
 });
 
-
-function main() {
-
-	interv = 0;
-
-	drawTimer = setInterval(function() {
-
-		drawLine((storyArr[interv]));
-		interv++;
-		if (interv > storyArr.length) {
-			clearInterval(drawTimer);
+var methods = {
+	begin: function() {
+		this.spacebar();
+	},
+	keypress: function(e) {
+		e.preventDefault();
+		if (e.which === 32) {
+			this.spacebar();
+		}
+	},
+	spacebar: function() {
+		if (story["hasNext"]()) {
+			$(".textField").html(story["next"]());
+			$("#audioField").attr("src", story["audioURL"]());
 		}
 	}
-	, 1000);
+}; 
 
-	
-	
-}
+var story = {
+	storyArr: ["Hello there, my name is Alfred.", "I'm a talking website.", "That is all. Goodbye."],
+	currPos: -1,
+	hasNext: function() {
+		return this.currPos < this.storyArr.length - 1;
+	},
+	next: function() {
+		return this.storyArr[++this.currPos];	
+	},
+	audioURL: function() {
+		return "http://tts-api.com/tts.mp3?q=" + this.storyArr[this.currPos];
+	}
+};
 
-function drawLine(line) {
-	ctx.font = 'bold 20px helvetica';
 
-	var yCoord = 100
-
-	var xCoord = 10;
-
-	ctx.fillStyle = "#000";
-
-	ctx.fillText(line, xCoord, yCoord);
-
-}
-
-/*
-.panel {
-color: #808080;
-font-size: 1.385em;
-font-weight: bolder;
-*/
