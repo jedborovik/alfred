@@ -1,4 +1,4 @@
 alfred
 ======
 
-The talking website.
+The talking website. Hit spacebar and he'll tell his story.
